@@ -1,8 +1,8 @@
-const OpenAi=require('openai')
+const OpenAI=require('openai')
 const dotenv=require('dotenv')
 dotenv.config()
 
-const openai=new OpenAi({
+const openai=new OpenAI({
     apiKey:process.env.OPENAI_API_KEY
 })
 
