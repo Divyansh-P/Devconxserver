@@ -9,6 +9,7 @@ const path = require('path');
 const { createServer } = require('http');
 const { Server } = require('socket.io');
 require('dotenv').config();
+const corsOption =require('./config/corsoption')
 
 const postsRoutes = require('./routes/posts');
 const usersRoutes = require('./routes/users');
@@ -42,19 +43,12 @@ app.use(
 app.use(bodyParser.json());
 
 const io = new Server(httpServer, {
-  cors: {
-    origin: CLIENT_URL,
-    methods: ['GET', 'POST'],
-  },
+  cors: corsOption,
 });
 socketHandlers(io);
 
 app.use(
-  cors({
-    origin: CLIENT_URL, // allow to server to accept request from different origin (client)
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true, // allow session cookie from browser to pass through
-  })
+  cors(corsOption)
 );
 
 app.use('/api/posts', postsRoutes);
