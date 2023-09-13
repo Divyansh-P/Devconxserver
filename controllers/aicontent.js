@@ -21,7 +21,40 @@ const titlegen=async(req,res)=>{
 const ideasgen=async(req,res)=>{
     try {
         const chatcompletion=await openai.chat.completions.create({
-            messages:[{role:"user",content:`give me some ideas to brainstorm for my blog on the topic ${req.body.msg}`}],
+            messages:[{role:"user",content:`give me some ideas to brainstorm for my blog on the topic ${req.body.msg} in detail`}],
+            model:"gpt-3.5-turbo"
+        })
+        res.send(chatcompletion.choices[0].message.content) 
+    } catch (error) {
+        res.status(500).send("server error")
+    }
+}
+const taggen=async(req,res)=>{
+    try {
+        const chatcompletion=await openai.chat.completions.create({
+            messages:[{role:"user",content:`give me some hashtags for my blog : ${req.body.msg}`}],
+            model:"gpt-3.5-turbo"
+        })
+        res.send(chatcompletion.choices[0].message.content) 
+    } catch (error) {
+        res.status(500).send("server error")
+    }
+}
+const analysegen=async(req,res)=>{
+    try {
+        const chatcompletion=await openai.chat.completions.create({
+            messages:[{role:"user",content:`analyse my blog and tell me readability of my blog and how can i improve it. blog : ${req.body.msg}`}],
+            model:"gpt-3.5-turbo"
+        })
+        res.send(chatcompletion.choices[0].message.content) 
+    } catch (error) {
+        res.status(500).send("server error")
+    }
+}
+const conclusiongen=async(req,res)=>{
+    try {
+        const chatcompletion=await openai.chat.completions.create({
+            messages:[{role:"user",content:`provide me with a suitable conclusion for my blog given below : ${req.body.msg}`}],
             model:"gpt-3.5-turbo"
         })
         res.send(chatcompletion.choices[0].message.content) 
@@ -45,4 +78,6 @@ const gmore=async(req,res)=>{
 exports.titlegen=titlegen
 exports.ideasgen=ideasgen
 exports.gmore=gmore
-
+exports.taggen=taggen
+exports.analysegen=analysegen
+exports.conclusiongen=conclusiongen
