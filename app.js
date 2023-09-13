@@ -83,7 +83,7 @@ app.use((error, req, res, next) => {
 
 mongoose
   .connect(
-    `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@blogdb.6k4lvnv.mongodb.net&authSource=admin/test`,
+    `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@blogdb.6k4lvnv.mongodb.net/test`,
     {
       useUnifiedTopology: true,
       useNewUrlParser: true,
