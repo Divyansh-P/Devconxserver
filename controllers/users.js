@@ -29,7 +29,7 @@ const getUserById = async (req, res, next) => {
           path: 'tags',
         },
       })
-      .populate('followedTags');
+      .populate('followedTags').populate('following');
     //exclude password, i.e. return only name and email
   } catch (err) {
     return next(new HttpError('Getting user failed, please try again!', 500));
