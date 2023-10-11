@@ -5,8 +5,6 @@
 
 # How to setup locally
 
-# How to setup locally
-
 * Clone repo to your local machine ```git clone https://github.com/Divyansh-P/DevConXserver.git```
 * Install dependencies ```npm i```
 * Set up a MongoDB database either locally or online via <a href='https://www.mongodb.com/cloud/atlas'>MongoDB Atlas</a>
