@@ -3,7 +3,7 @@ const router = express.Router();
 const { check } = require('express-validator');
 const passport = require('passport');
 const usersControllers = require('../controllers/users');
-const notificationsControllers = require('../controllers/notifications');
+//const notificationsControllers = require('../controllers/notifications');
 const postsControllers = require('../controllers/posts');
 const { fileUpload } = require('../middleware/file-upload');
 const checkAuth = require('../middleware/check-auth');
@@ -18,7 +18,7 @@ const {
   followUser,
   unfollowUser,
 } = usersControllers;
-const { getAllNotifications } = notificationsControllers;
+//const { getAllNotifications } = notificationsControllers;
 const { getBookmarks } = postsControllers;
 
 router.get('/:userId', getUserById);
@@ -38,12 +38,12 @@ router.post(
 
 
 router.post('/login', login);
-router.get('/:userId/notifications', getAllNotifications);
+/* router.get('/:userId/notifications', getAllNotifications);
 
 router.get(
   '/:userId/notifications/unread',
   notificationsControllers.getUnreadNotifications
-);
+); */
 
 router.get('/:userId/bookmarks', getBookmarks);
 

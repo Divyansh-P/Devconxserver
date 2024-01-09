@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+/* const mongoose = require('mongoose');
 const Post = require('../models/post');
 const User = require('../models/user');
 const Notification = require('../models/notification');
@@ -155,3 +155,4 @@ exports.followNotification = followNotification;
 exports.removeFollowNotification = removeFollowNotification;
 exports.getAllNotifications = getAllNotifications;
 exports.getUnreadNotifications = getUnreadNotifications;
+ */

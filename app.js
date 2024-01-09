@@ -62,7 +62,7 @@ app.use('/api/tags', tagsRoutes);
 app.use('/api/ai',aiRoutes)
 
 app.get('/', (req, res) => {
-  res.send('DEV.to is running');
+  res.send('server is running');
 });
 
 // app.use((req, res, next) => {

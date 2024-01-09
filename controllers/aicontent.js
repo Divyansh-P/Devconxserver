@@ -43,7 +43,7 @@ const taggen=async(req,res)=>{
 const analysegen=async(req,res)=>{
     try {
         const chatcompletion=await openai.chat.completions.create({
-            messages:[{role:"user",content:`analyse my blog and tell me readability of my blog and how can i improve it. blog : ${req.body.msg}`}],
+            messages:[{role:"user",content:`analyse my blog and tell me readability of my blog and how can i improve it.The blog is as follow : ${req.body.msg}`}],
             model:"gpt-3.5-turbo"
         })
         res.send(chatcompletion.choices[0].message.content) 

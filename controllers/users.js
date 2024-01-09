@@ -12,10 +12,10 @@ const { createJWTtoken } = require('../utils');
 const DEFAULT_AVATAR =
   'https://res.cloudinary.com/drkvr9wta/image/upload/v1647701003/undraw_profile_pic_ic5t_ncxyyo.png';
 
-const {
+/* const {
   followNotification,
   removeFollowNotification,
-} = require('../controllers/notifications');
+} = require('../controllers/notifications'); */
 const { uploadToCloudinary } = require('../utils');
 
 const getUserById = async (req, res, next) => {
@@ -214,7 +214,7 @@ const followUser = async (req, res, next) => {
       { $addToSet: { followers: userId } },
       { new: true }
     );
-    await followNotification(userId, followId);
+  //  await followNotification(userId, followId);
     res.status(201).json(user);
   } catch (err) {
     return next(new HttpError('Follow failed, please try again', 400));
@@ -235,7 +235,7 @@ const unfollowUser = async (req, res, next) => {
       { $pull: { followers: userId } },
       { new: true }
     );
-    await removeFollowNotification(userId, followId);
+  //  await removeFollowNotification(userId, followId);
     res.status(201).json(user);
   } catch (err) {
     return next(new HttpError('Unfollow failed, please try again', 400));

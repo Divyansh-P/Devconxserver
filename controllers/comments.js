@@ -5,10 +5,10 @@ const HttpError = require('../models/http-error');
 const Comment = require('../models/comment');
 const User = require('../models/user');
 const Post = require('../models/post');
-const {
+/* const {
   commentNotification,
   removeCommentNotification,
-} = require('../controllers/notifications');
+} = require('../controllers/notifications'); */
 
 const getCommentsByPostId = async (req, res, next) => {
   const { postId } = req.params;
@@ -81,14 +81,14 @@ const createComment = async (req, res, next) => {
     await post.save({ session: sess });
     await user.save({ session: sess });
     await sess.commitTransaction();
-    if (post.author.toString() !== userId) {
+    /* if (post.author.toString() !== userId) {
       await commentNotification(
         userId, //sender
         post.id,
         createdComment.id,
         post.author.toString() //author => receiver
       );
-    }
+    } */
   } catch (err) {
     return next(
       new HttpError('Creating comment failed, please try again', 500)
@@ -154,12 +154,12 @@ const deleteComment = async (req, res, next) => {
     comment.parentPost.comments.pull(comment);
     await comment.author.save({ session: sess });
     await comment.parentPost.save({ session: sess });
-    await removeCommentNotification(
+  /*   await removeCommentNotification(
       comment.author.id,
       comment.parentPost.id,
       commentId,
       comment.parentPost.author
-    );
+    ); */
     await sess.commitTransaction();
   } catch (err) {
     return next(
