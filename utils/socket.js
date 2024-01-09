@@ -1,4 +1,4 @@
-let users = [];
+/* let users = [];
 
 const addUser = async (userId, socketId) => {
   //is user already there?
@@ -87,3 +87,4 @@ const socketHandlers = (io) => {
 };
 
 exports.socketHandlers = socketHandlers;
+ */
