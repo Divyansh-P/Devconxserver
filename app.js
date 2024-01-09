@@ -7,7 +7,7 @@ const passport = require('passport');
 const cookieSession = require('cookie-session');
 const path = require('path');
 const { createServer } = require('http');
-const { Server } = require('socket.io');
+//const { Server } = require('socket.io');
 require('dotenv').config();
 const corsOption =require('./config/corsoption')
 
@@ -17,7 +17,7 @@ const commentsRoutes = require('./routes/comments');
 const tagsRoutes = require('./routes/tags');
 const aiRoutes=require('./routes/aicontent')
 const HttpError = require('./models/http-error');
-const { socketHandlers } = require('./utils/socket');
+//const { socketHandlers } = require('./utils/socket');
 
 const {
   COOKIE_KEY,
@@ -42,10 +42,10 @@ app.use(
 
 app.use(bodyParser.json());
 
-const io = new Server(httpServer, {
+/* const io = new Server(httpServer, {
   cors: corsOption,
 });
-socketHandlers(io);
+socketHandlers(io); */
 
 app.use(
   cors(corsOption)
