@@ -1,7 +1,7 @@
 # Devconxserver
 
 ## Website live at https://devconx.netlify.app/
-## API live at https://blogbackend-dd2g.onrender.com
+
 
 # How to setup locally
 
